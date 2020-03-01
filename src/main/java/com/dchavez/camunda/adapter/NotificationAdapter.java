@@ -5,14 +5,14 @@ import org.camunda.bpm.engine.delegate.JavaDelegate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CancelCarAdapter implements JavaDelegate {
-	
-	private static final Logger logger = LoggerFactory.getLogger(CancelCarAdapter.class);
+public class NotificationAdapter implements JavaDelegate {
+
+	private static final Logger logger = LoggerFactory.getLogger(NotificationAdapter.class);
 
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
 
-		logger.debug("cancel car for '" + execution.getVariable("name") + "'");
+		logger.debug("notify something wrong for '" + execution.getVariable("name") + "'");
 
 	}
 
