@@ -7,6 +7,20 @@ https://github.com/berndruecker/trip-booking-saga-java
 
 https://docs.spring.io/spring-batch/docs/current/reference/html/retry.html
 
+https://www.youtube.com/watch?v=ypX90aQScOQ&t=2s
+
+https://www.adictosaltrabajo.com/2015/01/29/spring-retry/
+
+https://www.baeldung.com/spring-retry
+
+https://www.programcreek.com/java-api-examples/?api=org.springframework.retry.policy.TimeoutRetryPolicy
+
+https://docs.camunda.org/manual/7.12/reference/rest/
+
+https://blog.camunda.com/post/2015/08/start-and-complete-process-with-rest-api/
+
+https://docs.camunda.org/manual/7.3/api-references/rest/#process-definition-start-process-instance
+
 ### Ejecucion:
 
 Levantar Docker, luego levantar Jaeger: 
