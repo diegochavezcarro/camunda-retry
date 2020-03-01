@@ -49,12 +49,12 @@
 					"raw": "{}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/rest/engine/default/process-definition/",
+					"raw": "http://localhost:8081/rest/engine/default/process-definition/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"rest",
 						"engine",
@@ -97,19 +97,19 @@
 					"raw": "{\"variables\": {\"name\":{\"value\":\"viaje\",\"type\":\"String\"}}}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/rest/engine/default/process-definition/key/trip/start",
+					"raw": "http://localhost:8081/rest/engine/default/process-definition/key/trip2/start",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"rest",
 						"engine",
 						"default",
 						"process-definition",
 						"key",
-						"trip",
+						"trip2",
 						"start"
 					]
 				}
@@ -122,15 +122,87 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/rest/task",
+					"raw": "http://localhost:8081/rest/task",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "8081",
 					"path": [
 						"rest",
 						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "camunda caller",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8083/camunda",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"camunda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "completar tarea",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/rest/task/8407ee2d-5bbd-11ea-89ca-b2eb324c4480/complete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"rest",
+						"task",
+						"8407ee2d-5bbd-11ea-89ca-b2eb324c4480",
+						"complete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ver tareas del proceso",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/rest/task?processDefinitionKey=trip2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"rest",
+						"task"
+					],
+					"query": [
+						{
+							"key": "processDefinitionKey",
+							"value": "trip2"
+						}
 					]
 				}
 			},

@@ -55,7 +55,7 @@
     <association id="association_c5e60003-0c59-4a43-b93c-7170300cd801" associationDirection="One" sourceRef="boundaryEvent_f71c3b00-fc91-4792-925e-d4b93a285a78" targetRef="Activity-Cancel-car-compensation" />
     <association id="association_f5f92e1c-80d8-4716-ac89-9f3191f0d7ef" associationDirection="One" sourceRef="boundaryEvent_5ade59c2-a9cd-434f-8aa6-f25030d86d48" targetRef="Activity-Cancel-hotel-compensation" />
   </process>
-  <error id="error_57879e66-9a99-454b-b2c2-ed2d68d97e06" errorCode="java.lang.Throwable" />
+  <error id="error_57879e66-9a99-454b-b2c2-ed2d68d97e06" name="Something Wrong" errorCode="java.lang.Throwable" />
   <bpmndi:BPMNDiagram id="BPMNDiagram_c28488c5-7f97-4360-b9b0-a238f692120d">
     <bpmndi:BPMNPlane id="BPMNPlane_a2116170-a1b2-428d-a45a-80e35f71d298" bpmnElement="trip2">
       <bpmndi:BPMNShape id="BPMNShape_89ad2a75-153f-442a-a102-b6dbf24642fc" bpmnElement="Start-trip">
