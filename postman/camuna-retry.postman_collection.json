@@ -94,7 +94,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"variables\": {\"name\":{\"value\":\"viaje\",\"type\":\"String\"}}}"
+					"raw": "{\"variables\": {\"name\":{\"value\":\"viaje\",\"type\":\"String\"}},\"prueba\":{\"value\":\"prueba\",\"type\":\"String\"}}}"
 				},
 				"url": {
 					"raw": "http://localhost:8081/rest/engine/default/process-definition/key/trip2/start",
@@ -166,7 +166,7 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8081/rest/task/5b11e0a4-5bc3-11ea-89ca-b2eb324c4480/complete",
+					"raw": "http://localhost:8081/rest/task/288bb9b4-5fbb-11ea-9542-f6af1e086362/complete",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -175,7 +175,7 @@
 					"path": [
 						"rest",
 						"task",
-						"5b11e0a4-5bc3-11ea-89ca-b2eb324c4480",
+						"288bb9b4-5fbb-11ea-9542-f6af1e086362",
 						"complete"
 					]
 				}
@@ -240,6 +240,36 @@
 					"path": [
 						"products",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtener variable de salida",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8081/rest/history/variable-instance?processInstanceId=048de99f-5fc0-11ea-9542-f6af1e086362&variableName=name",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"rest",
+						"history",
+						"variable-instance"
+					],
+					"query": [
+						{
+							"key": "processInstanceId",
+							"value": "048de99f-5fc0-11ea-9542-f6af1e086362"
+						},
+						{
+							"key": "variableName",
+							"value": "name"
+						}
 					]
 				}
 			},

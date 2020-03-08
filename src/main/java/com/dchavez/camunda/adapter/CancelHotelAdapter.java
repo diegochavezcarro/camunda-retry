@@ -12,7 +12,10 @@ public class CancelHotelAdapter implements JavaDelegate {
 	@Override
 	public void execute(DelegateExecution execution) throws Exception {
 		execution.setVariable("name", "viaje2 cancelado");
+		execution.setVariable("prueba", "prueba valida");
 		logger.debug("cancel hotel for '" + execution.getVariable("name") + "'");
+		logger.debug("cancel hotel for! '" + execution.getVariable("prueba") + "'");
+
 
 	}
 
