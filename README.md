@@ -29,8 +29,11 @@ docker run -d -p 6831:6831/udp -p 16686:16686 jaegertracing/all-in-one:latest
 
 En http://localhost:16686/ se veran las trazas.
 
-Ver collections de Postman en carpeta postman.
+Levantar mysql:
 
+docker run -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=camunda -d mysql:5.7.25
+
+Ver collections de Postman en carpeta postman.
 
 Levantar una API que sera llamada:
 
@@ -95,6 +98,56 @@ bin/kafka-server-start.sh config/server.properties
 Ejecutar postman "Llamada asincronica al Camunda"
 
 Ver las consolas, el Jaeger, etc
+
+### Ejecucion en Kubernetes (camunda-retry, product-service, jaeger y mysql):
+
+minikube start
+
+En otra terminal dejar corriendo el tunnel para poder usar Services del tipo LoadBalancer:
+
+minikube tunnel
+
+Volver a la terminal original, ubicarse en la raiz del proyecto. Para no tener que subir las
+imagenes a Docker Hub y sí subirlas al cache de imagenes del minikube:
+
+minikube docker-env
+
+eval $(minikube -p minikube docker-env)
+
+Crear el jar:
+
+mvn -B -DskipTests clean package
+
+Crear la Imagen:
+
+docker build -t diegochavezcarro/camunda-retry-app:1.0.0 .
+
+Desplegar en kubernetes el proyecto product-service, ubicado en la raiz del mismo:
+
+mvn -B -DskipTests clean package
+
+docker build -t diegochavezcarro/product-app:1.0.0 .
+
+kubectl create -f product-app-k8s-template.yaml
+
+Volver al directorio de camunda-retry y desplegar lo demas en kubernetes:
+
+kubectl create -f deploy-jaeger.yml
+
+kubectl create -f deploy-mysql.yml
+
+kubectl create -f camunda-retry-app-app-k8s-template.yaml
+
+Se podrá ver el Dashboard si se deja corriendo en otra ventana:
+
+minikube dashboard
+
+Ver las IP y puertos de los servicios que se probaran de afuera:
+
+kubectl get svc
+
+Modificar los postman para poder acceder a la IP del servicio camunda-retry
+
 
 
 

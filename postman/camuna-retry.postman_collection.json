@@ -188,7 +188,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/rest/task?processDefinitionKey=trip2",
+					"raw": "http://localhost:8081/rest/task?processDefinitionKey=trip2&processInstanceId=45e5bc0a-7789-11ea-b105-72dd8719f8c4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -202,6 +202,10 @@
 						{
 							"key": "processDefinitionKey",
 							"value": "trip2"
+						},
+						{
+							"key": "processInstanceId",
+							"value": "45e5bc0a-7789-11ea-b105-72dd8719f8c4"
 						}
 					]
 				}

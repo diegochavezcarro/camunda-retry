@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: camunda-retry
+spec:
+  type: LoadBalancer
+  selector:
+    app: camunda-retry-app
+  ports:
+  - port: 8081
+    targetPort: 8081
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: camunda-retry-deploy
+spec:
+  selector:
+    matchLabels:
+      app: camunda-retry-app
+  replicas: 4
+  strategy:
+    rollingUpdate:
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: camunda-retry-app
+    spec:
+      containers:
+      - name: camunda-retry-app
+        image: diegochavezcarro/camunda-retry-app:1.0.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: SPRING_PROFILES_ACTIVE
+          value: "dev"
+        ports:
+        - containerPort: 8081
